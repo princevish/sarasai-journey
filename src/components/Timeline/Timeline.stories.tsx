@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Timeline from './Timeline';
 import journeyData from '@/data/journeyData';
 

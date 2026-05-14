@@ -34,31 +34,38 @@ interface FlagIconProps {
 /**
  * FlagIcon: Renders the numbered flag indicator.
  */
-const FlagIcon: React.FC<FlagIconProps> = ({ color, number, className }) => {
+const FlagIcon: React.FC<FlagIconProps> = React.memo(({ color, number, className }) => {
   const flagSrc = `/${color}Flag.svg`;
 
   return (
     <div className={classNames(styles.flagContainer, className)} aria-hidden="true">
       <div className={styles.flagRelative}>
-        <img src={flagSrc} alt="" className={styles.flagImage} />
+        <img 
+          src={flagSrc} 
+          alt="" 
+          className={styles.flagImage} 
+          loading="lazy" 
+          decoding="async" 
+        />
         <span className={styles.flagNumber}>{number}</span>
       </div>
     </div>
   );
-};
+});
+
+FlagIcon.displayName = "FlagIcon";
 
 interface JourneyCardProps {
   block: JourneyBlock;
   side: "left" | "right";
   index: number;
-  isHandheld?: boolean;
 }
 
 /**
  * JourneyCard: A production-grade card component for the roadmap journey.
  * Follows BEM naming (via camelCase CSS modules) and accessibility best practices.
  */
-const JourneyCard: React.FC<JourneyCardProps> = ({ block, side, index, isHandheld }) => {
+const JourneyCard: React.FC<JourneyCardProps> = React.memo(({ block, side, index }) => {
   const { title, skills, status } = block;
   
   // Resolve configuration based on status
@@ -71,10 +78,9 @@ const JourneyCard: React.FC<JourneyCardProps> = ({ block, side, index, isHandhel
       [styles.journeyCardRight]: side === "right",
       [styles.journeyCardHighlighted]: config.isHighlighted,
       [styles.journeyCardCurrent]: config.isCurrent,
-      [styles.handheld]: isHandheld,
-      [styles[`journeyCard${config.flagColor.charAt(0).toUpperCase() + config.flagColor.slice(1)}`]]: true,
+      [styles.journeyCardRed]: config.flagColor === 'red',
     }),
-    [side, config, isHandheld]
+    [side, config]
   );
 
   return (
@@ -100,7 +106,7 @@ const JourneyCard: React.FC<JourneyCardProps> = ({ block, side, index, isHandhel
 
         <div className={styles.skillsSection}>
           <span className={styles.skillsLabel}>Skills:</span>
-          <div className={styles.tagsContainer} role="list" aria-label="Target skills">
+          <div className={styles.tagsContainer} role="list" aria-label={`Skills for ${title}`}>
             {skills.map((skill, skillIndex) => (
               <span
                 key={`${block.id}-skill-${skillIndex}`}
@@ -118,6 +124,8 @@ const JourneyCard: React.FC<JourneyCardProps> = ({ block, side, index, isHandhel
       </div>
     </article>
   );
-};
+});
+
+JourneyCard.displayName = "JourneyCard";
 
 export default JourneyCard;

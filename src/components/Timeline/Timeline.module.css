@@ -83,16 +83,7 @@
   padding-left: var(--connector-gap);
 }
 
-/* ===== Connector (center area on bar) ===== */
-.connector {
-  width: var(--timeline-width);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 6.25rem;
-}
+
 
 /* ===== Connector Dotted Lines (::after) + Endpoint Dots (::before) ===== */
 

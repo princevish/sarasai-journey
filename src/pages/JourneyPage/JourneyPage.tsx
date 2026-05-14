@@ -10,21 +10,22 @@ interface JourneyPageProps {
   totalSteps?: number;
 }
 
-const JourneyPage: React.FC<JourneyPageProps> = ({ 
+const JourneyPage: React.FC<JourneyPageProps> = React.memo(({ 
   data, 
   currentStep = 4, 
   totalSteps = 5
 }) => {
   return (
     <>
-      <div className={styles.decorativeBlob} />
+      <div className={styles.decorativeBlob} aria-hidden="true" />
       <Header currentStep={currentStep} totalSteps={totalSteps} />
-      <main className={styles.mainContainer}>
+      <main className={styles.mainContainer} id="main-content">
         <Timeline data={data} />
       </main>
     </>
   );
-};
+});
 
+JourneyPage.displayName = "JourneyPage";
 
 export default JourneyPage;
