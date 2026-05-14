@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap');
+
+/* ===== CSS Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color Tokens */
+  --color-bg: #FFFFFF;
+  --color-white: #ffffff;
+  --color-black: #1A1A1A;
+  
+  --color-orange-primary: #EB5D2A;
+  --color-orange-dark: #C53500;
+  --color-orange-light: #FFF5F1;
+  
+  --color-red-primary: #FF0000;
+  --color-red-dark: #C20808;
+  --color-red-light: #FFF0F0;
+  
+  --color-purple-primary: #866298;
+  --color-purple-dark: #6E4F7D;
+  --color-purple-light: #B3A3BC;
+  
+  --color-gray-text: #6D6E71;
+  --color-border: #E6E7E8;
+  
+  --color-timeline-bar: #1A1A1A;
+  --color-road-dot: #D1D3D4;
+  --color-road-lane: #FDB813;
+
+  /* Typography */
+  --font-outfit: 'Outfit', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-family: var(--font-inter);
+
+  /* Spacing — wider cards + longer connectors to match reference */
+  --timeline-width: 3rem;
+  --journey-col-total: 33.75rem;
+  --connector-gap: 7.5rem;
+  --card-max-width: calc(var(--journey-col-total) - var(--connector-gap));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}

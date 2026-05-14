@@ -1,0 +1,13 @@
+.mainContainer {
+  max-width: 70rem;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 3.75rem;
+}
+
+.decorativeBlob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  /* Add further decorative styles if needed */
+}
