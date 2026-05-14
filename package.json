@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "publish-storybook": "npm run build-storybook && npx vercel storybook-static --prod"
   },
   "dependencies": {
     "@types/classnames": "^2.3.0",
