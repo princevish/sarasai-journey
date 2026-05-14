@@ -254,3 +254,40 @@
     padding-right: 0.5rem;
   }
 }
+
+/* ===== Empty State ===== */
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20rem;
+  text-align: center;
+}
+
+.emptyContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.625rem);
+  -webkit-backdrop-filter: blur(0.625rem);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 3rem 2rem;
+  max-width: 25rem;
+  width: 100%;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.emptyMessage {
+  font-family: var(--font-outfit);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #B5B6B8;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptySubMessage {
+  font-family: var(--font-roboto);
+  font-size: 1rem;
+  color: #B5B6B8;
+  margin: 0;
+  line-height: 1.5;
+}

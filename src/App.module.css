@@ -3,7 +3,7 @@
   background-color: var(--color-bg);
   position: relative;
   overflow: hidden;
-  background-image: url('/ai-journey-bg.svg');
+  background-image: url('./assets/images/ai-journey-bg.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;

@@ -51,6 +51,17 @@ const Timeline: React.FC<TimelineProps> = React.memo(({ data }) => {
     });
   }, [data, isHandheld]);
 
+  if (!data || data.length === 0) {
+    return (
+      <div className={classNames(styles.timeline, styles.emptyState)}>
+        <div className={styles.emptyContent}>
+          <p className={styles.emptyMessage}>Journey not found</p>
+          <p className={styles.emptySubMessage}>Please check back later or try a different search.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(styles.timeline)}>
       {/* Central vertical bar */}

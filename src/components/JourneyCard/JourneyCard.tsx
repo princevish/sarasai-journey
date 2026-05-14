@@ -1,7 +1,16 @@
 import React, { useMemo } from "react";
 import classNames from "classnames";
+import redFlag from "@/assets/images/redFlag.svg";
+import orangeFlag from "@/assets/images/orangeFlag.svg";
+import purpleFlag from "@/assets/images/purpleFlag.svg";
 import styles from "./JourneyCard.module.css";
 import { JourneyBlock } from "@/types";
+
+const FLAG_IMAGES: Record<string, string> = {
+  red: redFlag,
+  orange: orangeFlag,
+  purple: purpleFlag,
+};
 
 /**
  * Status configuration for mapping statuses to colors and styles.
@@ -35,7 +44,7 @@ interface FlagIconProps {
  * FlagIcon: Renders the numbered flag indicator.
  */
 const FlagIcon: React.FC<FlagIconProps> = React.memo(({ color, number, className }) => {
-  const flagSrc = `/${color}Flag.svg`;
+  const flagSrc = FLAG_IMAGES[color] || purpleFlag;
 
   return (
     <div className={classNames(styles.flagContainer, className)} aria-hidden="true">

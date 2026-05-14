@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import logo from "@/assets/images/logo.svg";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = React.memo(({ currentStep = 4, totalSteps 
     <header className={styles.header}>
       <div className={styles.headerContent}>
         <div className={styles.headerLogo}>
-          <img src="/logo.svg" alt="Saras AI Institute" loading="lazy" decoding="async" />
+          <img src={logo} alt="Saras AI Institute" loading="lazy" decoding="async" />
         </div>
 
         <div className={styles.progressIndicator}>
